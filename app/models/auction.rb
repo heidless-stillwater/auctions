@@ -1,8 +1,5 @@
 class Auction < ApplicationRecord
-  belongs_to :users
-
-  validates :title, presence: true 
-  validates :description, presence: true 
-  validates :start_date, presence: true 
-  validates :end_date, presence: true 
+  belongs_to :user, optional: true
+  has_many :bids
+  validates_presence_of :title, :description, :start_date, :end_date
 end
